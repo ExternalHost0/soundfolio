@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+body {
+    background: #181818;
+}
+
+body.dark {
+    background: #131313;
+}
+
 :root {
-  
+    --iconMenuFill: #eefee9;
+    --iconMenuStroke: #85c328;
+    --iconMenuFillActive: #8ede3e;
+    --iconMenuStrokeActive: #d2fdb5;
+    --iconMenuStrokeExtra: #a7e549;
+    --unactiveMenuTextColor: #f0f7f1;
+    --activeMenuTextColor: #f0f7f1;
+    --userProfileColor1: transparent;
+    --userProfileColor2: transparent;
+
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  height: 0.1rem;
 }

@@ -1,0 +1,14 @@
+.vertHighlight:hover {
+  box-shadow: inset 0 -60px 0 0 #2f3030;
+}
+
+.greenGradText {
+  @apply bg-clip-text bg-repeat bg-[length:100%] text-transparent bg-gradient-to-r from-emerald-500 to-lime-600;
+  /* animation: glowFlicker 4s infinite; */
+}
+
+@keyframes glowFlicker {
+  0% {text-shadow: 0 2px 4px #65a30d;}
+  50% {text-shadow: 0 2px 25px #65a30d;}
+  100% {text-shadow: 0 2px 4px #65a30d;}
+}
