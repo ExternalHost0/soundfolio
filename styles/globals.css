@@ -26,9 +26,12 @@ body.dark {
 }
 
 hr {
-  border: 0;
-  clear:both;
-  display:block;
-  width: 96%;               
-  height: 0.1rem;
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;               
+    height: 0.1rem;
+}
+.modal {
+    font-family: inter;
 }

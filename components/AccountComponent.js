@@ -40,7 +40,7 @@ function AccComponent() {
     }
       <Menu as="div" className="relative inline-block text-left z-10">
         <div>
-          <Menu.Button className='flex items-center justify-center bg-neutral-700 hover:bg-neutral-800 rounded-2xl py-2 px-3 gap-3 shadow-smd transition-all'>
+          <Menu.Button className='flex items-center justify-center bg-neutral-700 hover:bg-[#363636] rounded-2xl py-2 px-3 gap-3 shadow-smd transition-all'>
             <div className='w-9 h-9 relative'>
               <Image alt='Profile Picture' fill quality='20' className='rounded-full' src={session?.user.image} onLoad={generateColor}/>
             </div>
@@ -56,7 +56,7 @@ function AccComponent() {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y rounded-md bg-stone-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y rounded-md bg-neutral-700 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-1 py-1">
               <Menu.Item>
                 {({ active }) => (

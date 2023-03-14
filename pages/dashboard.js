@@ -13,8 +13,10 @@ export default function dashboard() {
         <link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico"/>
       </Head>
       <div>
-        <HeaderComponent/>
-        <div className='px-4 flex justify-between'>
+        <div className="bg-neutral-800">
+          <HeaderComponent/>
+        </div>
+        <div className='flex justify-between'>
           <ProfileComponent/>
           <FriendsComponent/>
         </div>

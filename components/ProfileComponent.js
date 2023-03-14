@@ -46,31 +46,43 @@ function ProfileComponent() {
   };
   const handleMouseIn = function() {
     charCountRef.current.style.opacity = 1;
-};
+  };
 
   return (
-    <div className='w-[20rem] h-fit rounded-2xl border-4 border-orange-300 shadow-lg shadow-orange-400 bg-neutral-800 overflow-hidden'>
-      <div className='grid grid-cols-1 grid-rows-[2fr_6fr] gap-4 h-full'>
-        <div className='relative mb-10 max-h-[10rem]'>
-          <Image fill alt='User Banner Image' src='/images/back.jfif'/>
-          <div className='relative w-20 h-20 mx-auto top-[70%]'>
-            <Image fill alt='User Profile Image' className='rounded-xl border-4 border-orange-200' src={session?.user.image}/>
+    <div className='w-[20rem] border-r-4 border-r-pfpColor1 overflow-hidden'>
+      <div className='grid grid-cols-1 grid-rows-[2fr_6fr] h-full'>
+        <div className='relative bg-gradient-to-t from-neutral-800'>
+          <Image fill className='object-cover -z-10' alt='User Banner Image' src='/images/back.jfif' quality={30}/>
+          <div className='grid grid-cols-2 h-full'>
+            {/* FOR SOME REASON, THIS HREF ATTR YIELDS AN ERROR ON INITIALIZE, WILL STAY COMMENTED UNTIL FIX */}
+            {/* <a href={profile.external_urls.spotify} target='/'> */}
+              <button className='relative h-32 w-32 mr-auto top-[10%] left-[6%] z-10 rounded-xl border-4 border-pfpColor1 group'>
+                <div className='items-center justify-center flex'>
+                  <Image fill alt='User Profile Image' className='rounded-lg group-hover:brightness-75 transition' src={session?.user.image}/>
+                  <span className='absolute text-neutral-100 transition-opacity opacity-0 group-hover:opacity-100 p-2'>View Profile on Spotify</span>
+                </div>
+              </button>
+            {/* </a> */}
+            <div className='flex items-start flex-col justify-center'>
+              <p className='font-medium text-xl text-white'>{session?.user.name}</p>
+              <div className='flex gap-1 justify-center items-center'>
+                <p className='text-neutral-300'>{profile.country} | </p>
+                { country &&
+                <div className='relative h-8 w-10'>
+                  <Image fill alt='Country Flag' className='object-contain' src={`https://raw.githubusercontent.com/hampusborgos/country-flags/main/png100px/${country}.png`} quality={10}/>
+                </div>
+                }
+              </div>
+            </div>
           </div>
         </div>
-        <div className='flex flex-col items-center'>
-          <p className='font-medium text-xl text-white'>{session?.user.name}</p>
-          <div className='flex gap-1 justify-center items-center'>
-            <p className='text-neutral-300'>{profile.country} | </p>
-            { country &&
-            <div className='relative h-8 w-10'>
-              <Image fill alt='Country Flag' className='object-contain' src={`https://raw.githubusercontent.com/hampusborgos/country-flags/main/png100px/${country}.png`}/>
-            </div>  
-            }
-          </div>
-          <ProfileBadges/>
-          <div className='py-1'>
+        
+        <div className='flex bg-neutral-800 flex-col items-center'>
+          {/* BELOW IS PROFILEBADGES.JS ASWELL AS THE "VIEW FULL PROFILE" BUTTON WHICH WILL LIKELY LINK THE USERS OWN PROFILE PAGE AS A WHOLE NEW PAGE */}
+          {/* <ProfileBadges/> */}
+          {/* <div className='py-1'>
             <button className='bg-orange-600 hover:bg-orange-700 rounded-xl font-semibold text-lg py-1 px-2 transition-colors'>View Full Profile</button>
-          </div>
+          </div> */}
           <hr className='bg-stone-400 my-2'/>
           <div className='px-4 w-full'>
             <div className='w-full'>
@@ -78,36 +90,37 @@ function ProfileComponent() {
               <span ref={charCountRef} className='text-neutral-500 -translate-x-[25px] translate-y-[20px] absolute transition-opacity'>{charCount}</span>
             </div>
           </div>
-          <hr className='bg-stone-400 my-2'/>
+          {/* BELOW IS THE HOBBY SELECTOR COMPONENT, IM NOT SURE IF THIS WILL STAY BUT IS KEPT INCASE I USE LATER */}
+          {/* <hr className='bg-stone-400 my-2'/>
           <div className='w-full px-4'>
             <HobbySelectorComponent/>
-          </div>
+          </div> */}
           <hr className='bg-stone-400 my-2'/>
           <div className='w-full px-4 pb-3'>
             <p className='text-neutral-400 font-medium'>Favorite Artists</p>
             {topArtists.map((top, i) => {
               return (
-                <div key={i} className='flex items-center gap-4 py-1'>
-                  <div className='relative w-10 h-10'>
-                  <a href={top.external_urls.spotify} target='/'>
-                    <Image fill src={top.images[2].url} className='rounded-full hover:brightness-75' quality={10}/>
-                  </a>
-                  </div> 
-                  <p className='text-neutral-200'>{top.name}</p>
-                </div>
+                <a href={top.external_urls.spotify} target='/'>
+                  <button key={i} className='flex items-center gap-4 py-1 hover:brightness-75 group'>
+                    <div className='relative w-10 h-10'>
+                      <Image fill src={top.images[2].url} className='rounded-full' quality={10}/>
+                    </div> 
+                    <p className='text-neutral-200 group-hover:underline'>{top.name}</p>
+                  </button>
+                </a>
               ) 
             })}
             <p className='text-neutral-400 font-medium'>Favorite Songs</p>
             {topTracks.map((top, i) => {
               return (
-                <div key={i} className='flex items-center gap-4 py-1'>
-                  <div className='relative w-10 h-10'>
-                    <a href={top.external_urls.spotify} target='/'>
+                <a href={top.external_urls.spotify} target='/'>
+                  <button key={i} className='flex items-center gap-4 py-1 hover:brightness-75 group'>
+                    <div className='relative w-10 h-10'>
                       <Image fill src={top.album.images[2].url} className='rounded-sm hover:brightness-75' quality={10}/>
-                    </a>
-                  </div> 
-                  <p className='text-neutral-200'>{top.name}</p>
-                </div>
+                    </div> 
+                    <p className='text-neutral-200 group-hover:underline'>{top.name}</p>
+                  </button>
+                </a>
               ) 
             })}
           </div>
