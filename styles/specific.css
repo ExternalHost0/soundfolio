@@ -12,3 +12,8 @@
   50% {text-shadow: 0 2px 25px #65a30d;}
   100% {text-shadow: 0 2px 4px #65a30d;}
 }
+
+.small .react-colorful__saturation-pointer {
+  width: 1.4rem;
+  height: 1.4rem;
+}

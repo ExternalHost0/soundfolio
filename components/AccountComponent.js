@@ -35,9 +35,7 @@ function AccComponent() {
   
   return (
     <>
-    { showProfileModal &&
       <ProfileModal showProfile={showProfileModal} closeModal={closeModal}/>
-    }
       <Menu as="div" className="relative inline-block text-left z-10">
         <div>
           <Menu.Button className='flex items-center justify-center bg-neutral-700 hover:bg-[#363636] rounded-2xl py-2 px-3 gap-3 shadow-smd transition-all'>

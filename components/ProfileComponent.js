@@ -49,7 +49,7 @@ function ProfileComponent() {
   };
 
   return (
-    <div className='w-[20rem] border-r-4 border-r-pfpColor1 overflow-hidden'>
+    <div className='w-fit border-r-4 border-r-pfpColor1 overflow-hidden'>
       <div className='grid grid-cols-1 grid-rows-[2fr_6fr] h-full'>
         <div className='relative bg-gradient-to-t from-neutral-800'>
           <Image fill className='object-cover -z-10' alt='User Banner Image' src='/images/back.jfif' quality={30}/>
@@ -59,11 +59,11 @@ function ProfileComponent() {
               <button className='relative h-32 w-32 mr-auto top-[10%] left-[6%] z-10 rounded-xl border-4 border-pfpColor1 group'>
                 <div className='items-center justify-center flex'>
                   <Image fill alt='User Profile Image' className='rounded-lg group-hover:brightness-75 transition' src={session?.user.image}/>
-                  <span className='absolute text-neutral-100 transition-opacity opacity-0 group-hover:opacity-100 p-2'>View Profile on Spotify</span>
+                  <span className='absolute text-neutral-100 transition-opacity opacity-0 group-hover:opacity-100 p-2'>View on Spotify</span>
                 </div>
               </button>
             {/* </a> */}
-            <div className='flex items-start flex-col justify-center'>
+            <div className='flex items-start flex-col justify-center mx-3'>
               <p className='font-medium text-xl text-white'>{session?.user.name}</p>
               <div className='flex gap-1 justify-center items-center'>
                 <p className='text-neutral-300'>{profile.country} | </p>

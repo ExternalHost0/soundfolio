@@ -1,7 +1,23 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import { HexColorPicker } from "react-colorful";
+import ProfileComponent from './ProfileComponent';
+import useClickOutside from '@/hooks/useClickOutside';
 
 export default function ProfileModal({ showProfile, closeModal }) {
+  const [ color, setColor ] = useState("#aabbcc");
+  const [ showColorPicker, setShowColorPicker ] = useState(false)
+  const popoverRef = useRef();
+
+  useClickOutside(popoverRef, () => toggleColorPicker());
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--userProfileColor1', color);
+  }, [color])
+
+  function toggleColorPicker() {
+    setShowColorPicker(!showColorPicker)
+  }
 
   return (
     <>
@@ -30,27 +46,33 @@ export default function ProfileModal({ showProfile, closeModal }) {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
         >
-            <Dialog.Panel className="w-full max-w-[75rem] h-[45rem] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+            <Dialog.Panel className="w-full max-w-[85rem] h-[45rem] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
             <Dialog.Title
-                as="h3"
-                className="text-lg font-medium leading-6 text-gray-900"
+                as="span"
+                className="text-2xl font-medium text-gray-900"
             >
               Profile
             </Dialog.Title>
-            <div className="mt-2">
-              <p className="text-sm text-gray-500">
-                Your payment has been successfully submitted. We've sent
-                you an email with all of the details of your order.
-              </p>
-            </div>
-
-            <div className="mt-4">
-              <button
-                type="button"
-                className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                onClick={closeModal}
-                >
-                Save
+            <div className="p-2">
+              <div className='grid grid-cols-3'>
+                <div>
+                  <span>Profile Color 1</span>
+                  <button onClick={toggleColorPicker} className='border-2 border-neutral-500 w-10 h-10 bg-pfpColor1'/>
+                  {showColorPicker &&
+                    <section className='small' ref={popoverRef}>
+                      <HexColorPicker color={color} onChange={setColor} />
+                    </section>          
+                  }
+                </div>
+                <div>
+                  
+                </div>
+                <div className='p-5'>
+                  <ProfileComponent/>
+                </div>
+              </div>
+              <button onClick={closeModal} className="w-20 rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                Close
               </button>
             </div>
             </Dialog.Panel>
