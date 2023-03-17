@@ -17,7 +17,12 @@ export default function dashboard() {
           <HeaderComponent/>
         </div>
         <div className='flex justify-between'>
-          <ProfileComponent/>
+          <div className="-translate-x-56 hover:translate-x-0 transition-transform group-[viewer] group">
+            <span className="-rotate-90 w-max absolute z-30 left-[73%] top-[40%] text-neutral-300 text-[2rem] group-[viewer]:hover:opacity-0 transition-opacity">Hover Over Profile</span>
+            <div className="brightness-50 hover:brightness-100 transition">
+              <ProfileComponent/>
+            </div>
+          </div>
           <FriendsComponent/>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { Menu, Transition } from '@headlessui/react'
 import React, { Fragment, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { extractColors } from 'extract-colors'
-import { BsFillPersonFill, BsFillGearFill } from 'react-icons/bs'
+import { BsFillGearFill } from 'react-icons/bs'
 import { IoAlertCircle, IoHelpCircle } from 'react-icons/io5'
 import ProfileModal from './ProfileModal'
 
@@ -60,20 +60,6 @@ function AccComponent() {
                 {({ active }) => (
                   <button
                     onClick={() => setShowProfileModal(true)}
-                    className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-pfpColor1 text-[var(--unactiveMenuTextColor)] hover:text-[var(--activeMenuTextColor)]'}
-                  >
-                    <BsFillPersonFill
-                      className="mr-2 h-5 w-5"
-                      aria-hidden="true"
-                    />
-                    Profile
-                  </button>
-                )}
-                
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
                     className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-pfpColor1 text-[var(--unactiveMenuTextColor)] hover:text-[var(--activeMenuTextColor)]'}
                   >
                     <BsFillGearFill

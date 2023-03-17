@@ -6,7 +6,7 @@ ssr: false,
 import Link from 'next/link';
 import { AiFillHome } from 'react-icons/ai'
 import { BsFillDiscFill } from 'react-icons/bs'
-import {GoSearch} from 'react-icons/go'
+import { HiSearch } from 'react-icons/hi'
 
 export default function HeaderComponent() {
   return (
@@ -21,9 +21,11 @@ export default function HeaderComponent() {
           </Link>
         </div>
         <div className='flex'>
-          <div className='flex focus:outline-pfpColor1 focus:outline mr-10 items-center'>
-            <GoSearch size={25} color='lightgrey' className='absolute ml-2'/>
-            <input placeholder='Search someone..' className='rounded-xl py-2 pl-10'/>
+          <div className='flex flex-row-reverse mr-10 items-center '>
+            <input placeholder='Search someone..' className='rounded-lg bg-neutral-500 text-neutral-50 py-[0.67rem] placeholder:text-neutral-200 pl-4 focus:outline-pfpColor1 focus:outline focus:outline-2 focus:shadow-slg focus:shadow-pfpColor1 transition-all'/>
+            <button className='absolute bg-pfpColor1 p-2 rounded-lg border-2 border-neutral-500'>
+              <HiSearch size={25} color='white'/>
+            </button>
           </div>
           <AccComponent/>
         </div>

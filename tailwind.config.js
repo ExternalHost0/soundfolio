@@ -21,7 +21,8 @@ module.exports = {
       boxShadow: {
         smd: '0 10px 30px -15px rgba(0, 0, 0, 0.3)',
         sHeavy: '0 5px 55px -5px rgba(0, 0, 0, 0.3)',
-        slg: '0 4px 15px 0 rgba(0, 0, 0, 0.3)'
+        slg: '0 4px 15px 0 rgba(0, 0, 0, 0.3)',
+        sbutton: '0 3px 20px -13px rgba(0, 0, 0, 0.3)'
       },
       colors: {
         "pfpColor1": "var(--userProfileColor1)",

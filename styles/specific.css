@@ -17,3 +17,7 @@
   width: 1.4rem;
   height: 1.4rem;
 }
+
+.profileModalSplit {
+  @apply bg-stone-400 my-4;
+}
