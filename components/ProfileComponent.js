@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import useSpotify from '@/hooks/useSpotify'
 import Image from 'next/image'
-import HobbySelectorComponent from './HobbySelectorComponent'
-import ProfileBadges from './ProfileBadges'
+import HobbySelectorComponent from './experimental/HobbySelectorComponent'
+import ProfileBadges from './experimental/ProfileBadges'
 import { HiCheckBadge } from 'react-icons/hi2'
 
 function ProfileComponent() {
@@ -79,6 +79,7 @@ function ProfileComponent() {
         
         <div className='flex bg-neutral-800 flex-col items-center'>
           {/* BELOW IS PROFILEBADGES.JS ASWELL AS THE "VIEW FULL PROFILE" BUTTON WHICH WILL LIKELY LINK THE USERS OWN PROFILE PAGE AS A WHOLE NEW PAGE */}
+          
           {/* <ProfileBadges/> */}
           {/* <div className='py-1'>
             <button className='bg-orange-600 hover:bg-orange-700 rounded-xl font-semibold text-lg py-1 px-2 transition-colors'>View Full Profile</button>
@@ -91,6 +92,7 @@ function ProfileComponent() {
             </div>
           </div>
           {/* BELOW IS THE HOBBY SELECTOR COMPONENT, IM NOT SURE IF THIS WILL STAY BUT IS KEPT INCASE I USE LATER */}
+          
           {/* <hr className='bg-stone-400 my-2'/>
           <div className='w-full px-4'>
             <HobbySelectorComponent/>

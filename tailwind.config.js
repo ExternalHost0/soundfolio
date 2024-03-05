@@ -22,11 +22,18 @@ module.exports = {
         smd: '0 10px 30px -15px rgba(0, 0, 0, 0.3)',
         sHeavy: '0 5px 55px -5px rgba(0, 0, 0, 0.3)',
         slg: '0 4px 15px 0 rgba(0, 0, 0, 0.3)',
-        sbutton: '0 3px 20px -13px rgba(0, 0, 0, 0.3)'
+        sbutton: '0 3px 20px -13px rgba(0, 0, 0, 0.3)',
+        sSolid: '0 4px 11px 0 rgba(0, 0, 0, 0.3)',
       },
       colors: {
         "pfpColor1": "var(--userProfileColor1)",
-        "pfpColor2": "var(--userProfileColor2)"
+        "pfpColor2": "var(--userProfileColor2)",
+        "forest": {
+          300: "#4ffbbf",
+          400: "#0daf76",
+          600: "#145f43",
+          800: "#162922"
+        } 
       },
     },
   },

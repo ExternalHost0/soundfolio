@@ -1,14 +1,14 @@
-import Image from 'next/image'
-import { signOut } from 'next-auth/react'
-import { Menu, Transition } from '@headlessui/react'
-import React, { Fragment, useState } from 'react'
-import { useSession } from 'next-auth/react'
-import { extractColors } from 'extract-colors'
-import { BsFillGearFill } from 'react-icons/bs'
-import { IoAlertCircle, IoHelpCircle } from 'react-icons/io5'
-import ProfileModal from './ProfileModal'
+import Image from 'next/image';
+import { signOut } from 'next-auth/react';
+import { Menu, Transition } from '@headlessui/react';
+import React, { Fragment, useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { extractColors } from 'extract-colors';
+import { BsFillGearFill } from 'react-icons/bs';
+import { IoAlertCircle, IoHelpCircle } from 'react-icons/io5';
+import SettingsModal from './SettingsModal';
 
-export default AccComponent
+export default AccComponent;
 
 function AccComponent() {
   const { data: session } = useSession()
@@ -35,8 +35,8 @@ function AccComponent() {
   
   return (
     <>
-      <ProfileModal showProfile={showProfileModal} closeModal={closeModal}/>
-      <Menu as="div" className="relative inline-block text-left z-10">
+      <SettingsModal showProfile={showProfileModal} closeModal={closeModal}/>
+      <Menu as="div" className="relative inline-block text-left z-30">
         <div>
           <Menu.Button className='flex items-center justify-center bg-neutral-700 hover:bg-[#363636] rounded-2xl py-2 px-3 gap-3 shadow-smd transition-all'>
             <div className='w-9 h-9 relative'>
@@ -60,7 +60,7 @@ function AccComponent() {
                 {({ active }) => (
                   <button
                     onClick={() => setShowProfileModal(true)}
-                    className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-pfpColor1 text-[var(--unactiveMenuTextColor)] hover:text-[var(--activeMenuTextColor)]'}
+                    className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-forest-400 text-[var(--unactiveMenuTextColor)] hover:text-[var(--activeMenuTextColor)]'}
                   >
                     <BsFillGearFill
                       className="mr-2 h-5 w-5"
@@ -75,7 +75,7 @@ function AccComponent() {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-pfpColor1 text-[var(--unactiveMenuTextColor)] hover:text-[var(--activeMenuTextColor)]'}
+                    className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-forest-400 text-[var(--unactiveMenuTextColor)] hover:text-[var(--activeMenuTextColor)]'}
                   >
                     <IoAlertCircle
                       className="mr-2 h-5 w-5"
@@ -88,7 +88,7 @@ function AccComponent() {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-pfpColor1 text-[var(--unactiveMenuTextColor)] hover:text-[var(--activeMenuTextColor)]'}
+                    className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-forest-400 text-[var(--unactiveMenuTextColor)] hover:text-[var(--activeMenuTextColor)]'}
                   >
                     <IoHelpCircle
                       className="mr-2 h-5 w-5"
@@ -103,7 +103,7 @@ function AccComponent() {
               <Menu.Item>
                   <button
                     onClick={() => signOut()}
-                    className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-pfpColor1 text-[var(--unactiveMenuTextColor)] hover:text-[var(--activeMenuTextColor)]'}
+                    className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-forest-400 text-[var(--unactiveMenuTextColor)] hover:text-[var(--activeMenuTextColor)]'}
                   >
                     Log Out
                   </button>

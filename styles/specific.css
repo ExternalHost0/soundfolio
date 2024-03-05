@@ -13,11 +13,31 @@
   100% {text-shadow: 0 2px 4px #65a30d;}
 }
 
+/* used to change the picker pointer in the colorpicker library */
 .small .react-colorful__saturation-pointer {
   width: 1.4rem;
   height: 1.4rem;
 }
 
+
 .profileModalSplit {
   @apply bg-stone-400 my-4;
+}
+
+/* this is how each friend is animated when hovered in FriendsComponent.js
+every other friend is moved back and has their opacity lowered 
+these are very important to the feel of the FriendsComponent.js */
+.things:hover button:not(:hover) {
+  opacity: 0.5;
+  translate: 0 -100px;
+  pointer-events: none;
+}
+.things button:hover {
+  transform: scale(1.5);
+}
+.things { 
+  visibility: hidden; 
+}
+.things > * { 
+  visibility: visible; 
 }
